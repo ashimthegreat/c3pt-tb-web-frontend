@@ -8,20 +8,23 @@ export default function Page({ pageData }) {
   return (
     <main style={{ padding: '40px' }}>
       <h1>{pageData.title}</h1>
-      <p>{pageData.content?.text}</p>
+
+      {pageData.content?.text && <p>{pageData.content.text}</p>}
 
       {pageData.video_url && (
         <iframe
           width="560"
           height="315"
           src={pageData.video_url}
-          title="Video"
+          title={pageData.title + ' Video'}
+          allowFullScreen
         />
       )}
     </main>
   );
 }
 
+// Fetch data from backend for the given slug
 export async function getServerSideProps({ params }) {
   const { slug } = params;
 
@@ -37,8 +40,8 @@ export async function getServerSideProps({ params }) {
     };
   } catch (error) {
     return {
-      notFound: true,
+      notFound: true, // return 404 if page not found or API fails
     };
   }
 }
-
+      
