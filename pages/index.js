@@ -81,10 +81,8 @@ export default function Home({ products, services, partners }) {
       </Head>
 
       <main className="font-sans text-gray-900">
-        {/* Hero Section */}
         <HeroSection />
 
-        {/* Services */}
         <AnimatedSection className="bg-gray-50 text-center">
           <h2 className="text-4xl md:text-5xl font-bold mb-10">
             Our Services
@@ -96,7 +94,6 @@ export default function Home({ products, services, partners }) {
           </div>
         </AnimatedSection>
 
-        {/* Products */}
         <AnimatedSection>
           <h2 className="text-4xl md:text-5xl font-bold mb-10 text-center">
             Our Products
@@ -108,7 +105,6 @@ export default function Home({ products, services, partners }) {
           </div>
         </AnimatedSection>
 
-        {/* Partners */}
         <AnimatedSection className="bg-gray-50 text-center">
           <h2 className="text-4xl md:text-5xl font-bold mb-10">Our Partners</h2>
           <div className="flex flex-wrap justify-center items-center gap-6">
@@ -124,7 +120,6 @@ export default function Home({ products, services, partners }) {
           </div>
         </AnimatedSection>
 
-        {/* Contact CTA */}
         <AnimatedSection className="bg-orange-500 text-white text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Ready to Innovate?
@@ -144,7 +139,7 @@ export default function Home({ products, services, partners }) {
   );
 }
 
-// ===== Static Props (ISR) =====
+// ===== Static Props (Fully Static) =====
 export async function getStaticProps() {
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://c3pt-tb-web.onrender.com";
 
@@ -160,7 +155,6 @@ export async function getStaticProps() {
       services: servicesRes.data || [],
       partners: partnersRes.data || [],
     },
-    revalidate: 60,
   };
 }
 
